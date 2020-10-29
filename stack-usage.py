@@ -84,10 +84,12 @@ if __name__ == "__main__":
 
     with open(args.stack_usage, "r") as f:
         for line in f:
-            cols = line.split('\t')
-            text = cols[0].split(':')
+            cols = line.split('\t') # e.g. [ 'file.c:109:10:Function1', '32', 'static\n' ]
+            text = cols[0].split(':') # e.g. ['file.c', '109', '10', 'Function1' ]
+            functionName = text[3]
+            stackSize = int(cols[1])
 
-            cgraph.getFunction(text[3]).setStackSize(int(cols[1]))
+            cgraph.getFunction(functionName).setStackSize(stackSize)
 
     with open(args.callgraph, "r") as f:
         for line in f:
