@@ -29,8 +29,8 @@ class CallGraph(object):
     def linearizeNode(self, name, funcList, callStack = []):
         node = { "name": name, "children": [], "size": self.getStackSize(callStack), "callStack": self.getStackString(callStack) }
         if len(callStack) != len(set(callStack)):
-            node["name"]      += " (recursion detected)"
-            node["callStack"] += " (recursion detected)"
+            node["name"]      += " (recursion detected)" # don't change the "recursion detected" string
+            node["callStack"] += " (recursion detected)" # don't change the "recursion detected" string
         else:
             for f in funcList:
                 node["children"].append(self.linearizeNode(funcList[f].name, funcList[f].callee, callStack + [funcList[f]]))
