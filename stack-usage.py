@@ -77,6 +77,7 @@ if __name__ == "__main__":
     parser.add_argument("--callgraph",   default = "stack-usage-log.cgraph", help = "specifies the file which contains the output of GCCs -fdump-ipa-cgraph option")
     parser.add_argument("--csv",         default = None,                     help = "specifies the filename for CSV output")
     parser.add_argument("--json",        default = None,                     help = "specifies the filename for JSON output")
+    parser.add_argument("--warn",        default = None,                     help = "emit warning for unknown external symbols")
 
     args   = parser.parse_args()
     cgraph = CallGraph()
@@ -106,3 +107,10 @@ if __name__ == "__main__":
     if args.json is not None:
         with open(args.json, "w") as f:
             cgraph.createJson(f)
+
+    if args.warn is not None:
+        print('')
+        for k, v in cgraph.funcs.items():
+            if v.stack == 0:
+                print('External function (stack size=0 assumed): "{0}"'.format(v.name))
+

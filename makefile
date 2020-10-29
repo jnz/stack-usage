@@ -84,7 +84,7 @@ analyze: $(obj_files)
 	$(Q)echo 'Output files:' $(output_csv), $(output_json)
 	$(Q)echo
 	$(Q)echo 'Calculated worst-case stack usage in bytes:'
-	$(Q)python stack-usage.py --csv $(output_csv) --json $(output_json)
+	$(Q)python stack-usage.py --warn on --csv $(output_csv) --json $(output_json)
 # fail the build if we detect recursion (! to invert return code)
 	$(Q)! cat $(output_csv) | grep "recursion detected"
 
