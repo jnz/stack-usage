@@ -96,6 +96,8 @@ In a nutshell, avoid:
     - Function pointers
     - Duplicate function names
     - Library functions
+    - LTO
+    - longjmp
 
 
 ## Interrupts
