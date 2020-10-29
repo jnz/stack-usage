@@ -92,6 +92,7 @@ In a nutshell, avoid:
 
     - Recursion
     - alloca function (alloca will cause the build to fail)
+    - Variable length arrays (C99) VLA
     - Function pointers
     - Duplicate function names
     - Library functions

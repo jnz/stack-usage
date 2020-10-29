@@ -62,6 +62,8 @@ CFLAGS += -MMD -MP
 CFLAGS += -fstack-usage -fdump-ipa-cgraph
 # Let the build fail if alloca is used:
 CFLAGS += -Walloca -Werror=alloca
+# Let the build fail if variable length arrays are used:
+CFLAGS += -Werror=vla
 
 
 # extract source directories from sources files:
