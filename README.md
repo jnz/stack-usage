@@ -80,7 +80,7 @@ be resolved as the compiler itself has no information about how they will be
 executed during runtime. Next is **recursion**. Although it can be detected at
 compile time in general we never know how deep the nesting is at runtime. There
 is another limitation which is **duplicate functions**. As all data is
-currently collected into one file the python script can currently not resolv
+currently collected into one file the python script can currently not resolve
 whether a function comes from source code A or B. However in a good project you
 shall not find two different functions in multiple files having the same name.
 So this usually shouldn't be an issue. The last thing to mention are
