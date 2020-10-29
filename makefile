@@ -60,6 +60,9 @@ CFLAGS += -MMD -MP
 # The object file is actually a byproduct
 # e.g.  gcc -fstack-usage -fdump-ipa-cgraph -o example.o -c example.c
 CFLAGS += -fstack-usage -fdump-ipa-cgraph
+# warn about alloca
+CFLAGS += -Walloca -Werror=alloca
+
 
 # extract source directories from sources files:
 source_dirs := $(sort $(dir $(SRC_FILES)))
