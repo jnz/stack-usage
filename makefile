@@ -65,7 +65,6 @@ CFLAGS += -Walloca -Werror=alloca
 # Let the build fail if variable length arrays are used:
 CFLAGS += -Werror=vla
 
-
 # extract source directories from sources files:
 source_dirs := $(sort $(dir $(SRC_FILES)))
 VPATH += $(source_dirs)
@@ -92,6 +91,8 @@ analyze: $(obj_files)
 	$(Q)python stack-usage.py --warn on --csv $(output_csv) --json $(output_json)
 # fail the build if we detect recursion (! to invert return code)
 	$(Q)! cat $(output_csv) | grep "recursion detected"
+# fail the build if we detect a non-static and non-bounded function in the .su input (keyword "dynamic" at end of .su file line)j
+	$(Q)! cat $(output_su) | grep "dynamic$$"
 
 # VPATH recreates the full path of the .c input
 $(build_directory)/%.o: %.c
