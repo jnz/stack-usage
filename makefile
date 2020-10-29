@@ -51,7 +51,7 @@ Q ?= @
 # Include dependencies (i.e. .h files)
 # -MMD: tell GCC to create dependency .d files
 # -MP: These dummy rules work around errors make gives if you remove header
-#      files without updating the Makefile to match. 
+#      files without updating the Makefile to match.
 #  With -include $(c_deps) include those generated .d files here in the makefile
 CFLAGS += -MMD -MP
 # Compile the source files using the flags *-fstack-usage* and
