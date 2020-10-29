@@ -60,7 +60,7 @@ CFLAGS += -MMD -MP
 # The object file is actually a byproduct
 # e.g.  gcc -fstack-usage -fdump-ipa-cgraph -o example.o -c example.c
 CFLAGS += -fstack-usage -fdump-ipa-cgraph
-# warn about alloca
+# Let the build fail if alloca is used:
 CFLAGS += -Walloca -Werror=alloca
 
 

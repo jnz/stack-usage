@@ -91,7 +91,7 @@ anything about code we did not compile ourselves.
 In a nutshell, avoid:
 
     - Recursion
-    - alloca function
+    - alloca function (alloca will cause the build to fail)
     - Function pointers
     - Duplicate function names
     - Library functions
