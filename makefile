@@ -93,6 +93,8 @@ analyze: $(obj_files)
 	$(Q)! cat $(output_csv) | grep "recursion detected"
 # fail the build if we detect a non-static and non-bounded function in the .su input (keyword "dynamic" at end of .su file line)j
 	$(Q)! cat $(output_su) | grep "dynamic$$"
+# fail the build if we detect a function pointer call
+	$(Q)! ( cat $(output_cgraph) | grep -q "\<Indirect call" && echo "Function pointer call detected"  )
 
 # VPATH recreates the full path of the .c input
 $(build_directory)/%.o: %.c
